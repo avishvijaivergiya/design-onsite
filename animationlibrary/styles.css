@@ -9,6 +9,9 @@
     --scale-hover: 1.02;
     --scale-active: 0.98;
 
+    /* Shape Transition */
+    --shape-transition: border-radius var(--transition-speed) var(--transition-easing);
+
     /* Spacing/Padding */
     --padding-8: 8px;
     --padding-16: 16px;
@@ -37,6 +40,7 @@
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
+    --radius-full: 999px;
 
     /* Form Control Colors */
     --color-border: rgba(47, 40, 28, 0.2);
@@ -50,6 +54,13 @@
     --spacing-sm: 8px;
     --spacing-md: 16px;
     --spacing-lg: 24px;
+
+    /* Skeleton Loading */
+    --bg-skeleton: #f5f5f5;
+
+    /* Interactive States */
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --active-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* Base Typography */
@@ -94,8 +105,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Secondary Button */
 .btn-secondary {
-    background-color: transparent;
-    color: var(--color-charcoal);
+    background-color: var(--color-white);
     border: var(--border-default);
 }
 
@@ -373,4 +383,52 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 var(--padding-16);
     height: var(--height-40);
     font-size: 14px;
+}
+
+.btn-rounded {
+    border-radius: var(--radius-full);
+    padding: 0 var(--padding-24);
+}
+
+/* Shape Shifting Classes */
+.shape-shift {
+    transition: all var(--transition-speed) var(--transition-easing);
+    outline: none;
+}
+
+/* For elements that start rounded and become square */
+.shape-shift.round-to-square {
+    border-radius: var(--radius-full);
+}
+
+.shape-shift.round-to-square.shifted {
+    border-radius: var(--radius-sm);
+}
+
+/* For elements that start square and become round */
+.shape-shift.square-to-round {
+    border-radius: var(--radius-sm);
+}
+
+.shape-shift.square-to-round.shifted {
+    border-radius: var(--radius-full);
+}
+
+/* Focus styles */
+.shape-shift:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-charcoal);
+}
+
+/* Common Interactive Animations */
+.interactive {
+    transition: all var(--transition-speed) var(--transition-easing);
+    cursor: pointer;
+}
+
+.interactive:hover {
+    transform: scale(var(--scale-hover));
+}
+
+.interactive:active {
+    transform: scale(var(--scale-active));
 } 

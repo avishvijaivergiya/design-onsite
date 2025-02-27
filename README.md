@@ -20,6 +20,13 @@ A comprehensive animation system for the HealthBook UI components, designed to c
 - Transition duration based on content size
 - Smooth height animations for expanding/collapsing elements
 
+### 2. Shape-Shifting System
+Components can transform between rounded and square shapes based on interaction states:
+
+#### Round to Square
+
+#### Square to Round
+
 ## Animation Classes
 
 ### Base Scale Animation
@@ -56,11 +63,52 @@ A comprehensive animation system for the HealthBook UI components, designed to c
 - Smooth border transitions
 - Custom arrow animation
 
+### 3. Interactive Animations
+Common scale animations for interactive elements:
+
+### 1. Filter Buttons
+- Start with fully rounded corners
+- Transform to square corners on focus/click
+- Scale on hover
+- Return to original shape on blur
+
+### 3. Time Slots
+- Square corners by default
+- Transform to round on focus/click
+- Scale on hover
+- Disabled state for booked slots
+
+### 4. Doctor Cards
+- Scale on hover
+- Smooth transitions for all interactive elements
+- Maintains shape during interactions
+
+## Loading States
+
+### Skeleton Loading
+- Smooth loading states for cards and filters
+- Maintains layout during loading
+- Automatic transition to content
+- Rounded corners match final component shapes
+
+## Modal Interactions
+
+### Booking Modal
+- Smooth entry with fade and transform
+- Shape-shifting form controls
+- Animated confirmation screen
+- Auto-dismissal after booking
+
+### Confirmation Animation
+- Animated checkmark drawing
+- Smooth transitions between states
+- Green success indication
+
 ## Usage
 
 1. Include the animation system:
 
-2. For dynamic content transitions:
+2. Initialize animations:
 
 ## Animation Rules
 
@@ -87,18 +135,29 @@ A comprehensive animation system for the HealthBook UI components, designed to c
 ## Best Practices
 
 1. **Performance**
-   - Use `will-change` sparingly
-   - Avoid animating expensive properties (layout, paint)
-   - Prefer transform and opacity animations
+- Use transform and opacity for animations
+- Avoid animating layout properties
+- Keep transitions short and smooth
 
 2. **Accessibility**
-   - Respect reduced-motion preferences
-   - Ensure animations don't interfere with screen readers
-   - Provide alternative states for non-animated views
+- Maintain focus visibility
+- Ensure keyboard navigation works
+- Don't rely solely on hover states
 
 3. **Consistency**
-   - Use predefined animation tokens
-   - Maintain consistent timing across similar interactions
-   - Follow the established scale factors
+- Use provided CSS variables
+- Maintain consistent timing
+- Follow established patterns
+
+4. **Progressive Enhancement**
+- Animations don't break functionality
+- Fallback states for older browsers
+- Graceful degradation
+
+## Browser Support
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Fallback to non-animated states in older browsers
 
 ## Implementation Example
+
+3. Add animation classes:

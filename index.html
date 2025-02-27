@@ -14,14 +14,23 @@
 <body>
     <header>
         <h1>Find a Doctor</h1>
-        <div class="filter-section">
-            <button class="btn btn-secondary animate-scale">I'm flexible</button>
-            <button class="btn btn-secondary animate-scale">Time of day</button>
-            <button class="btn btn-secondary animate-scale">Annual Physical</button>
-            <button class="btn btn-secondary animate-scale">Specialty</button>
-            <button class="btn btn-secondary animate-scale">Distance</button>
-            <button class="btn btn-secondary animate-scale">In-person/video</button>
-            <button class="btn btn-secondary animate-scale">More filters</button>
+        <div class="filter-section skeleton-filters" style="display: none;">
+            <button class="btn btn-secondary btn-rounded interactive shape-shift round-to-square">I'm flexible</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">Time of day</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">Annual Physical</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">Specialty</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">Distance</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">In-person/video</button>
+            <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">More filters</button>
+        </div>
+        <div class="filter-section skeleton-filters-loading">
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
+            <div class="skeleton skeleton-filter"></div>
         </div>
         <div class="results-count">
             37 In-network providers
@@ -37,8 +46,8 @@
                 </div>
             </div>
             <div id="pagination">
-                <button class="btn btn-secondary animate-scale">Previous</button>
-                <button class="btn btn-primary animate-scale">1</button>
+                <button class="btn btn-secondary interactive">Previous</button>
+                <button class="btn btn-primary interactive">1</button>
                 <button class="btn btn-secondary animate-scale">2</button>
                 <button class="btn btn-secondary animate-scale">3</button>
                 <button class="btn btn-secondary animate-scale">Next</button>
@@ -54,85 +63,11 @@
     <div id="modal-container"></div>
 
     <script>
-        // Mock data for doctors
-        const mockDoctors = [
-            {
-                name: "Dr. Sarah Johnson",
-                specialty: "Primary Care",
-                rating: 4.8,
-                reviews: 156,
-                nextAvailable: "Tomorrow",
-                image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. Michael Chen",
-                specialty: "Cardiology",
-                rating: 4.9,
-                reviews: 203,
-                nextAvailable: "Today",
-                image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. Emily Rodriguez",
-                specialty: "Pediatrics",
-                rating: 4.7,
-                reviews: 178,
-                nextAvailable: "Tomorrow",
-                image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. James Wilson",
-                specialty: "Dermatology",
-                rating: 4.6,
-                reviews: 142,
-                nextAvailable: "Next Week",
-                image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. Lisa Patel",
-                specialty: "Family Medicine",
-                rating: 4.9,
-                reviews: 267,
-                nextAvailable: "Today",
-                image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. David Kim",
-                specialty: "Orthopedics",
-                rating: 4.8,
-                reviews: 189,
-                nextAvailable: "Tomorrow",
-                image: "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. Rachel Thompson",
-                specialty: "Internal Medicine",
-                rating: 4.7,
-                reviews: 156,
-                nextAvailable: "Today",
-                image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=200"
-            },
-            {
-                name: "Dr. Robert Martinez",
-                specialty: "Neurology",
-                rating: 4.8,
-                reviews: 213,
-                nextAvailable: "Next Week",
-                image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=200"
-            }
-        ];
-
         // Initialize the Google Maps callback
         function initGoogleMaps() {
             // This will be called when Google Maps is loaded
             initMap();
         }
-
-        // Load mock data after delay to simulate API call
-        setTimeout(() => {
-            document.querySelector('.skeleton-doctors').style.display = 'none';
-            document.querySelector('.doctors-list').style.display = 'block';
-        }, 2000);
     </script>
     <script src="design-onsite/script.js"></script>
     <script async

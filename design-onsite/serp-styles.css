@@ -1,0 +1,282 @@
+/* Spacing Variables */
+:root {
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-40: 40px;
+
+    /* Background Colors */
+    --bg-page: #f5f5f5;
+    --bg-card: var(--color-white);
+    --bg-skeleton: #f5f5f5;
+}
+
+/* SERP Specific Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-page);
+}
+
+header {
+    padding: var(--padding-24);
+    background-color: var(--bg-card);
+    border-bottom: var(--border-input);
+}
+
+h1 {
+    margin-bottom: var(--space-16);
+    color: var(--color-charcoal);
+}
+
+.filter-section {
+    display: flex;
+    gap: var(--padding-8);
+    flex-wrap: wrap;
+    margin-bottom: var(--padding-16);
+}
+
+.results-count {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--padding-24);
+    padding: var(--padding-24);
+}
+
+/* Doctors Container */
+.doctors-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--padding-24);
+}
+
+/* Doctor Card Styles */
+.doctor-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-16);
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    gap: var(--space-16);
+    margin-bottom: var(--space-16);
+    align-items: center;
+    cursor: pointer;
+}
+
+.doctor-card:hover {
+    transform: scale(var(--scale-hover));
+    cursor: pointer;
+}
+
+.doctor-card:last-child {
+    margin-bottom: 0;
+}
+
+.doctor-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-skeleton);
+}
+
+.doctor-info h3 {
+    margin: 0 0 var(--space-8);
+    color: var(--color-charcoal);
+}
+
+.doctor-info p {
+    margin: 0 0 var(--space-8);
+    color: var(--color-charcoal);
+}
+
+.doctor-info .address {
+    color: #666;
+    font-size: 14px;
+}
+
+.rating {
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.rating .stars {
+    color: #FFB400;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rating .stars svg {
+    flex-shrink: 0;
+}
+
+.rating .reviews {
+    color: #666;
+    font-size: 14px;
+}
+
+.availability {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+/* Timeslots */
+.timeslots {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.timeslot {
+    font-family: var(--font-primary);
+    padding: 0 var(--padding-16);
+    height: var(--height-48);
+    border: var(--border-default);
+    border-radius: var(--radius-sm);
+    color: var(--color-charcoal);
+    font-weight: 500;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeslot:hover {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    transform: scale(var(--scale-hover));
+}
+
+.timeslot:active {
+    transform: scale(var(--scale-active));
+}
+
+.timeslot.booked {
+    background-color: var(--bg-page);
+    border-color: var(--bg-page);
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.timeslot.booked:hover {
+    transform: none;
+    background-color: var(--bg-page);
+}
+
+.more-btn {
+    align-self: center;
+    padding: var(--space-8) var(--space-16);
+}
+
+/* Doctor Card Skeleton */
+.skeleton-doctor-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--padding-16);
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    gap: var(--padding-16);
+    margin-bottom: var(--padding-16);
+    align-items: center;
+}
+
+.skeleton-doctor-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.skeleton-doctor-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-8);
+}
+
+.skeleton-timeslots {
+    display: flex;
+    gap: var(--padding-8);
+}
+
+/* Map Container */
+.map-container {
+    position: sticky;
+    top: var(--space-24);
+    height: calc(100vh - var(--space-24) * 2);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: calc(100% - 48px);
+}
+
+#expand-map {
+    position: absolute;
+    bottom: var(--space-16);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctor-card {
+        grid-template-columns: 100px 1fr;
+    }
+    
+    .timeslots {
+        grid-column: 1 / -1;
+        overflow-x: auto;
+        padding-bottom: var(--space-8);
+    }
+    
+    .more-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .filter-section {
+        overflow-x: auto;
+        padding-bottom: var(--space-8);
+    }
+
+    .filter-section::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Filter Skeleton */
+.skeleton-filters-loading {
+    display: flex;
+    gap: var(--padding-8);
+    flex-wrap: wrap;
+    margin-bottom: var(--padding-16);
+}
+
+.skeleton-filter {
+    height: var(--height-48);
+    width: 120px;
+    border-radius: var(--radius-full);
+} 

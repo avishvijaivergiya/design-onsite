@@ -1,0 +1,225 @@
+/* Booking Form Modal */
+.booking-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed) var(--transition-easing);
+    pointer-events: none;
+}
+
+.booking-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.booking-form {
+    background: var(--bg-card);
+    padding: var(--padding-24);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.booking-modal.active .booking-form {
+    transform: translateY(0);
+}
+
+.booking-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-24);
+}
+
+.booking-form-header h2 {
+    margin: 0;
+    color: var(--color-charcoal);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    color: var(--color-charcoal);
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.close-modal:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(var(--scale-hover));
+}
+
+.close-modal:active {
+    transform: scale(var(--scale-active));
+}
+
+.close-modal svg {
+    width: 16px;
+    height: 16px;
+}
+
+.doctor-brief {
+    display: flex;
+    gap: var(--padding-16);
+    margin-bottom: var(--space-24);
+}
+
+.doctor-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.doctor-brief h3 {
+    margin: 0 0 var(--padding-8);
+    color: var(--color-charcoal);
+}
+
+.doctor-brief p {
+    margin: 0;
+    color: var(--color-charcoal);
+}
+
+.selected-time {
+    margin-bottom: var(--space-24);
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: var(--space-24);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.form-group label {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+.form-group:last-of-type {
+    margin-bottom: var(--space-24);
+}
+
+/* Form Controls */
+.form-select,
+.form-input {
+    width: 100%;
+    height: var(--height-48);
+    padding: 0 var(--padding-16);
+    border: var(--border-input);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--color-charcoal);
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.form-select.shape-shift,
+.form-input.shape-shift {
+    outline: none;
+}
+
+.form-select.shape-shift:focus,
+.form-input.shape-shift:focus {
+    border-radius: var(--radius-full);
+    border-color: var(--color-charcoal);
+}
+
+/* Override default focus styles for shape-shifting inputs */
+.form-select.shape-shift:focus-visible,
+.form-input.shape-shift:focus-visible {
+    box-shadow: none;
+}
+
+/* Button Container */
+.booking-form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form-content .btn-primary {
+    align-self: flex-end;
+}
+
+/* Confirmation Screen */
+.booking-confirmation {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-24);
+}
+
+.confirmation-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-24);
+}
+
+.checkmark-circle {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.checkmark {
+    width: 100px;
+    height: 100px;
+}
+
+.checkmark-circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke: #4CAF50;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    stroke: #4CAF50;
+    stroke-width: 3;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.confirmation-message {
+    color: var(--color-charcoal);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+} 
