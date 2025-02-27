@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:active {
+    transform: scale(0.98);
 }
 
 /* Secondary Button */
@@ -98,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:active {
+    transform: scale(0.98);
 }
 
 /* Disabled State */
@@ -110,12 +112,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Animation Utility Classes */
 .animate-scale {
+    transition: transform var(--transition-speed) var(--transition-easing);
 }
 
 .animate-scale:hover {
+    transform: scale(1.02);
 }
 
 .animate-scale:active {
+    transform: scale(0.98);
 }
 
 /* Layout */
