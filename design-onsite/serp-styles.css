@@ -19,6 +19,11 @@ body {
     background-color: var(--bg-page);
 }
 
+.search-container {
+    background-color: var(--bg-card);
+    padding: var(--padding-24);
+}
+
 header {
     padding: var(--padding-24);
     background-color: var(--bg-card);
@@ -28,6 +33,13 @@ header {
 h1 {
     margin-bottom: var(--space-16);
     color: var(--color-charcoal);
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-24);
 }
 
 .filter-section {
@@ -279,4 +291,10 @@ h1 {
     height: var(--height-48);
     width: 120px;
     border-radius: var(--radius-full);
+}
+
+.signup-btn {
+    background-color: var(--color-brand);
+    color: var(--color-charcoal);
+    font-weight: 500;
 } 

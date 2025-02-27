@@ -346,4 +346,111 @@ function showConfirmation(event) {
             confirmation.style.display = 'none';
         }, 300);
     }, 3000);
+}
+
+function showSignupModal() {
+    const modalContainer = document.getElementById('modal-container');
+    if (!modalContainer) {
+        console.error('Modal container not found');
+        return;
+    }
+    
+    // Load signup form if not already loaded
+    if (!document.querySelector('.signup-modal')) {
+        fetch('./components/signup-form.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                modalContainer.insertAdjacentHTML('beforeend', html);
+                initializeSignupModal();
+            })
+            .catch(error => {
+                console.error('Error loading signup form:', error.message);
+                // Fallback: Create modal directly if fetch fails
+                modalContainer.innerHTML = `
+                    <div class="signup-modal modal">
+                        <div class="signup-form">
+                            <div class="form-header">
+                                <h2>Create Account</h2>
+                                <button class="close-modal">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <form class="signup-form-content">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" class="form-input shape-shift square-to-round" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" class="form-input shape-shift square-to-round" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-input shape-shift square-to-round" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" class="form-input shape-shift square-to-round" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="checkbox-input shape-shift square-to-round" required>
+                                        <span class="checkbox-custom shape-shift square-to-round"></span>
+                                        I agree to the Terms and Privacy Policy
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary interactive">Create Account</button>
+                                <p class="login-text">
+                                    Already have an account? 
+                                    <button type="button" class="btn btn-secondary btn-small">Log In</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                `;
+                initializeSignupModal();
+            });
+    } else {
+        document.querySelector('.signup-modal').classList.add('active');
+    }
+}
+
+function initializeSignupModal() {
+    const modal = document.querySelector('.signup-modal');
+    const closeBtn = modal.querySelector('.close-modal');
+    const form = modal.querySelector('form');
+
+    modal.classList.add('active');
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Handle form submission here
+        modal.classList.remove('active');
+    });
 } 

@@ -1,0 +1,27 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--padding-16);
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--padding-24);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup-btn {
+    background-color: var(--color-brand);
+    color: var(--color-charcoal);
+    font-weight: 500;
+} 

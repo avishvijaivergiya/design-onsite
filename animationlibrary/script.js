@@ -162,3 +162,21 @@ document.querySelectorAll('input[name="accountType"]').forEach(radio => {
         }
     });
 });
+
+// Initialize shape shifting
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.shape-shift').forEach(element => {
+        // Toggle shape on click
+        element.addEventListener('click', () => {
+            element.classList.add('shifted');
+        });
+
+        element.addEventListener('focus', () => {
+            element.classList.add('shifted');
+        });
+
+        element.addEventListener('blur', () => {
+            element.classList.remove('shifted');
+        });
+    });
+});

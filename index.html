@@ -7,13 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="animationlibrary/styles.css">
     <link rel="stylesheet" href="animationlibrary/animations.css">
+    <link rel="stylesheet" href="design-onsite/components/signup-form.css">
     <link rel="stylesheet" href="design-onsite/serp-styles.css">
     <link rel="stylesheet" href="design-onsite/components/doctor-card.css">
     <link rel="stylesheet" href="design-onsite/components/booking-form.css">
 </head>
 <body>
-    <header>
-        <h1>Find a Doctor</h1>
+    <div class="search-container">
+        <div class="search-header">
+            <h1>Find a Doctor</h1>
+            <button class="btn btn-primary signup-btn interactive shape-shift square-to-round" onclick="showSignupModal()">
+                Sign Up
+            </button>
+        </div>
         <div class="filter-section skeleton-filters" style="display: none;">
             <button class="btn btn-secondary btn-rounded interactive shape-shift round-to-square">I'm flexible</button>
             <button class="btn btn-secondary btn-rounded animate-scale shape-shift round-to-square">Time of day</button>
@@ -35,7 +41,7 @@
         <div class="results-count">
             37 In-network providers
         </div>
-    </header>
+    </div>
 
     <div class="content-wrapper">
         <main>
@@ -59,7 +65,7 @@
         </div>
     </div>
 
-    <!-- Include both forms -->
+    <!-- Modal Container -->
     <div id="modal-container"></div>
 
     <script>

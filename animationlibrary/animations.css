@@ -206,4 +206,99 @@
 .skeleton-text {
     height: var(--height-16);
     border-radius: var(--radius-sm);
+}
+
+/* Shape Shifting Base Styles */
+.shape-shift {
+    transition: border-radius var(--transition-speed) var(--transition-easing);
+}
+
+.shape-shift.square-to-round {
+    border-radius: var(--radius-sm);
+}
+
+.shape-shift.square-to-round.shifted {
+    border-radius: var(--radius-full);
+}
+
+.shape-shift.round-to-square {
+    border-radius: var(--radius-full);
+}
+
+.shape-shift.round-to-square.shifted {
+    border-radius: var(--radius-sm);
+}
+
+/* Checkbox and Radio Base Styles */
+.checkbox-container, .radio-container {
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--color-charcoal);
+}
+
+.checkbox-input, .radio-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-custom, .radio-custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: var(--bg-card);
+    border: var(--border-default);
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+/* Checkbox Specific */
+.checkbox-input:checked ~ .checkbox-custom {
+    background-color: var(--color-brand);
+    border-color: var(--color-charcoal);
+}
+
+.checkbox-input:checked ~ .checkbox-custom:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--color-charcoal);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Radio Specific */
+.radio-custom {
+    border-radius: 50%;
+}
+
+.radio-input:checked ~ .radio-custom {
+    background-color: var(--color-brand);
+    border-color: var(--color-charcoal);
+}
+
+.radio-input:checked ~ .radio-custom:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-charcoal);
+}
+
+/* Shape Shifting for Checkboxes and Radios */
+.checkbox-input.shape-shift:checked ~ .checkbox-custom.shape-shift,
+.radio-input.shape-shift:checked ~ .radio-custom.shape-shift {
+    border-radius: var(--radius-full);
 } 
