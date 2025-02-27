@@ -3,6 +3,12 @@
     /* Typography */
     --font-primary: 'Montserrat', sans-serif;
 
+    /* Animation */
+    --transition-speed: 0.2s;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --scale-hover: 1.02;
+    --scale-active: 0.98;
+
     /* Spacing/Padding */
     --padding-8: 8px;
     --padding-16: 16px;
@@ -83,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:active {
-    transform: scale(0.98);
+    transform: scale(var(--scale-active));
 }
 
 /* Secondary Button */
@@ -99,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:active {
-    transform: scale(0.98);
+    transform: scale(var(--scale-active));
 }
 
 /* Disabled State */
@@ -116,11 +122,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-scale:hover {
-    transform: scale(1.02);
+    transform: scale(var(--scale-hover));
 }
 
 .animate-scale:active {
-    transform: scale(0.98);
+    transform: scale(var(--scale-active));
 }
 
 /* Layout */
