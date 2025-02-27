@@ -99,12 +99,23 @@ function createDoctorCards(doctors) {
                 <button class="timeslot interactive shape-shift square-to-round" data-time="10:30 AM">10:30 AM</button>
                 <button class="timeslot interactive shape-shift square-to-round" data-time="2:15 PM">2:15 PM</button>
             </div>
-            <button class="btn btn-secondary more-btn interactive">More</button>
+            <a href="profile.html?id=${doctor.id}" class="btn btn-secondary more-btn interactive">View Profile</a>
         </div>
     `).join('');
 
     container.innerHTML = template;
     updateBookedSlots();
+
+    // Add click handler for the entire card
+    document.querySelectorAll('.doctor-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't trigger if clicking on a button or link
+            if (!e.target.closest('button, a')) {
+                const doctorId = card.dataset.doctorId;
+                window.location.href = `profile.html?id=${doctorId}`;
+            }
+        });
+    });
 }
 
 function updateBookedSlots() {

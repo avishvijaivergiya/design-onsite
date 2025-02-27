@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sarah Johnson - Medical Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animationlibrary/styles.css">
+    <link rel="stylesheet" href="animationlibrary/animations.css">
+    <link rel="stylesheet" href="design-onsite/serp-styles.css">
+    <link rel="stylesheet" href="design-onsite/components/profile.css">
+    <script src="animationlibrary/script.js" defer></script>
+    <script src="design-onsite/components/profile.js" defer></script>
+</head>
+<body>
+    <div class="profile-page skeleton-profile" style="display: none;">
+        <a href="index.html" class="back-button btn btn-secondary interactive">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M15 8H1M1 8L8 15M1 8L8 1" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Back to Search
+        </a>
+        <div class="profile-container">
+            <img src="doctor-photo.jpg" alt="Dr. Sarah Johnson" class="profile-image interactive">
+            <div class="profile-info">
+                <h1>Dr. Sarah Johnson, MD</h1>
+                <p><strong>Board Certified Family Physician</strong></p>
+                <div class="specialties">
+                    <span class="specialty-tag interactive">Family Medicine</span>
+                    <span class="specialty-tag interactive">Preventive Care</span>
+                    <span class="specialty-tag interactive">Women's Health</span>
+                    <span class="specialty-tag interactive">Pediatrics</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-info content-section">
+            <h2>Contact Information</h2>
+            <p>📍 <strong>Address:</strong> 123 Medical Center Drive, Suite 200<br>
+               Los Angeles, CA 90001</p>
+            <p>📞 <strong>Phone:</strong> (555) 123-4567</p>
+            <p>📧 <strong>Email:</strong> dr.johnson@healthclinic.com</p>
+            <p>🕒 <strong>Office Hours:</strong><br>
+               Monday - Friday: 9:00 AM - 5:00 PM<br>
+               Saturday: 9:00 AM - 12:00 PM<br>
+               Sunday: Closed</p>
+        </div>
+
+        <section class="content-section interactive">
+            <h2>About Dr. Johnson</h2>
+            <p>Dr. Sarah Johnson is a board-certified family physician with over 15 years of experience in providing comprehensive medical care to patients of all ages. She completed her medical degree at Stanford University School of Medicine and her residency at UCLA Medical Center.</p>
+            
+            <p>Dr. Johnson is passionate about preventive care and building long-term relationships with her patients. She takes a holistic approach to healthcare, considering both physical and mental well-being in her treatment plans.</p>
+        </section>
+
+        <section class="content-section interactive">
+            <h2>Education & Training</h2>
+            <ul>
+                <li>Medical Degree - Stanford University School of Medicine</li>
+                <li>Residency - UCLA Medical Center</li>
+                <li>Board Certification - American Board of Family Medicine</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-item interactive">Annual Physical Examinations</div>
+                <div class="service-item interactive">Preventive Care</div>
+                <div class="service-item interactive">Chronic Disease Management</div>
+                <div class="service-item interactive">Women's Health Services</div>
+                <div class="service-item interactive">Pediatric Care</div>
+                <div class="service-item interactive">Immunizations</div>
+                <div class="service-item interactive">Mental Health Screening</div>
+                <div class="service-item interactive">Minor Surgical Procedures</div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Insurance</h2>
+            <div class="insurance-list">
+                <div class="insurance-item interactive">Blue Cross Blue Shield</div>
+                <div class="insurance-item interactive">Aetna</div>
+                <div class="insurance-item interactive">Cigna</div>
+                <div class="insurance-item interactive">UnitedHealthcare</div>
+                <div class="insurance-item interactive">Medicare</div>
+                <div class="insurance-item interactive">Medicaid</div>
+            </div>
+            <p>Please contact our office to verify your insurance coverage.</p>
+        </section>
+    </div>
+
+    <div class="profile-loading">
+        <div class="skeleton-profile-container">
+            <div class="skeleton skeleton-image"></div>
+            <div class="skeleton-content">
+                <div class="skeleton skeleton-text" style="width: 60%;"></div>
+                <div class="skeleton skeleton-text" style="width: 40%;"></div>
+                <div class="skeleton-tags">
+                    <div class="skeleton skeleton-tag"></div>
+                    <div class="skeleton skeleton-tag"></div>
+                    <div class="skeleton skeleton-tag"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

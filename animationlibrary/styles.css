@@ -4,9 +4,9 @@
     --font-primary: 'Montserrat', sans-serif;
 
     /* Animation */
-    --transition-speed: 0.2s;
+    --transition-speed: 0.3s;
     --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
-    --scale-hover: 1.02;
+    --scale-hover: 1.015;
     --scale-active: 0.98;
 
     /* Shape Transition */
@@ -61,6 +61,10 @@
     /* Interactive States */
     --hover-bg: rgba(0, 0, 0, 0.05);
     --active-bg: rgba(0, 0, 0, 0.1);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Base Typography */
