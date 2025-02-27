@@ -1,0 +1,184 @@
+/* Animation Tokens */
+:root {
+    /* Animation Timing */
+    --transition-speed: 200ms;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Animation Scales */
+    --scale-hover: 1.02;
+    --scale-active: 1.05;
+}
+
+/* Base Animation Classes */
+.animate-scale {
+    transform: scale(1);
+    transition: transform var(--transition-speed) var(--transition-easing);
+    will-change: transform;
+}
+
+.animate-scale:hover {
+    transform: scale(var(--scale-hover));
+}
+
+.animate-scale:active {
+    transform: scale(var(--scale-active));
+}
+
+/* Content Transition System */
+.content-shift {
+    position: relative;
+    transition-property: height, opacity, transform;
+    transition-timing-function: var(--transition-easing);
+    overflow: hidden;
+}
+
+.content-shift.entering {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.content-shift.entered {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* For elements that need to shift down */
+.content-shift-wrapper {
+    position: relative;
+    transition: margin var(--transition-easing);
+}
+
+/* Component-specific animations */
+.btn {
+    transform: scale(1);
+    transition: all var(--transition-speed) var(--transition-easing);
+    will-change: transform;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: scale(var(--scale-hover));
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+    transform: scale(var(--scale-active));
+}
+
+.form-input,
+.form-select {
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.form-input:focus,
+.form-select:focus {
+    transform: scale(var(--scale-hover));
+}
+
+.checkbox-custom,
+.radio-custom {
+    transition: all var(--transition-speed) var(--transition-easing);
+    transform: scale(1);
+    will-change: transform;
+}
+
+.checkbox-container:hover .checkbox-custom,
+.radio-container:hover .radio-custom {
+    transform: scale(var(--scale-hover));
+}
+
+.checkbox-container:active .checkbox-custom,
+.radio-container:active .radio-custom {
+    transform: scale(var(--scale-active));
+}
+
+/* Checkbox specific animations */
+.checkbox-input:checked + .checkbox-custom::after {
+    animation: checkmark 200ms var(--transition-easing) forwards;
+}
+
+@keyframes checkmark {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1);
+    }
+}
+
+/* Radio specific animations */
+.radio-input:checked + .radio-custom::after {
+    animation: radiomark 200ms var(--transition-easing) forwards;
+}
+
+@keyframes radiomark {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Skeleton Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.skeleton {
+    background: #f6f7f8;
+    background-image: linear-gradient(
+        to right,
+        #f6f7f8 0%,
+        #edeef1 20%,
+        #f6f7f8 40%,
+        #f6f7f8 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation: shimmer 1.2s linear infinite forwards;
+}
+
+/* Component-specific skeletons */
+.skeleton-button {
+    height: 48px;
+    border-radius: var(--radius-sm);
+    border: none;
+}
+
+.skeleton-input {
+    height: 40px;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-radio {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.skeleton-select {
+    height: 40px;
+    border-radius: var(--radius-sm);
+}
+
+.skeleton-text {
+    height: 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--spacing-xs);
+} 

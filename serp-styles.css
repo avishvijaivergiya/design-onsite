@@ -1,0 +1,221 @@
+/* Spacing Variables */
+:root {
+    --space-8: 8px;
+    --space-16: 16px;
+    --space-24: 24px;
+    --space-32: 32px;
+    --space-40: 40px;
+
+    /* Background Colors */
+    --bg-page: #f5f5f5;
+    --bg-card: var(--color-white);
+    --bg-skeleton: #f5f5f5;
+}
+
+/* Import Components */
+@import 'components/doctor-card.css';
+
+/* SERP Specific Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-page);
+}
+
+header {
+    padding: var(--padding-24);
+    background-color: var(--bg-card);
+    border-bottom: var(--border-input);
+}
+
+h1 {
+    margin-bottom: var(--space-16);
+    color: var(--color-charcoal);
+}
+
+.filter-section {
+    display: flex;
+    gap: var(--padding-8);
+    flex-wrap: wrap;
+    margin-bottom: var(--padding-16);
+}
+
+.results-count {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--padding-24);
+    padding: var(--padding-24);
+}
+
+/* Doctors Container */
+.doctors-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Doctor Card Styles */
+.doctor-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-16);
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    gap: var(--space-16);
+    transition: all var(--transition-speed) var(--transition-easing);
+    margin-bottom: var(--space-16);
+    align-items: center;
+}
+
+.doctor-card:hover {
+    transform: scale(var(--scale-hover));
+    cursor: pointer;
+}
+
+.doctor-card:last-child {
+    margin-bottom: 0;
+}
+
+.doctor-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-skeleton);
+}
+
+.doctor-info h3 {
+    margin: 0 0 var(--space-8);
+    color: var(--color-charcoal);
+}
+
+.doctor-info p {
+    margin: 0 0 var(--space-8);
+    color: var(--color-charcoal);
+}
+
+.rating {
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-8);
+}
+
+.availability {
+    color: var(--color-charcoal);
+    font-weight: 500;
+}
+
+/* Doctor Card Skeleton */
+.skeleton-doctor-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: var(--space-16);
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    gap: var(--space-16);
+    margin-bottom: var(--space-16);
+    align-items: center;
+}
+
+.skeleton-doctor-card:last-child {
+    margin-bottom: 0;
+}
+
+.skeleton-doctor-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.skeleton-doctor-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+.skeleton-timeslots {
+    display: flex;
+    gap: var(--space-8);
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    margin-top: var(--space-24);
+}
+
+/* Map Container */
+.map-container {
+    position: sticky;
+    top: var(--space-24);
+    height: calc(100vh - var(--space-24) * 2);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: calc(100% - 48px);
+}
+
+#expand-map {
+    position: absolute;
+    bottom: var(--space-16);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-section {
+        overflow-x: auto;
+        padding-bottom: var(--space-8);
+    }
+
+    .filter-section::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Timeslots Styles */
+.timeslots {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.timeslot {
+    padding: var(--space-8) var(--space-16);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-charcoal);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.timeslot:hover {
+    border-color: var(--color-charcoal);
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.more-btn {
+    align-self: center;
+    padding: var(--space-8) var(--space-16);
+} 

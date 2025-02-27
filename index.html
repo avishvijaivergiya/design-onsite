@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor Listings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../animationlibrary/styles.css">
+    <link rel="stylesheet" href="../animationlibrary/animations.css">
+    <link rel="stylesheet" href="serp-styles.css">
+    <link rel="stylesheet" href="components/doctor-card.css">
+    <link rel="stylesheet" href="components/booking-form.css">
+</head>
+<body>
+    <header>
+        <h1>Find a Doctor</h1>
+        <div class="filter-section">
+            <button class="btn btn-secondary animate-scale">I'm flexible</button>
+            <button class="btn btn-secondary animate-scale">Time of day</button>
+            <button class="btn btn-secondary animate-scale">Annual Physical</button>
+            <button class="btn btn-secondary animate-scale">Specialty</button>
+            <button class="btn btn-secondary animate-scale">Distance</button>
+            <button class="btn btn-secondary animate-scale">In-person/video</button>
+            <button class="btn btn-secondary animate-scale">More filters</button>
+        </div>
+        <div class="results-count">
+            37 In-network providers
+        </div>
+    </header>
+
+    <div class="content-wrapper">
+        <main>
+            <div id="doctors-container" class="doctors-container">
+                <div class="skeleton-doctors"></div>
+                <div class="doctors-list" style="display: none;">
+                    <!-- Actual doctor cards will be loaded here -->
+                </div>
+            </div>
+            <div id="pagination">
+                <button class="btn btn-secondary animate-scale">Previous</button>
+                <button class="btn btn-primary animate-scale">1</button>
+                <button class="btn btn-secondary animate-scale">2</button>
+                <button class="btn btn-secondary animate-scale">3</button>
+                <button class="btn btn-secondary animate-scale">Next</button>
+            </div>
+        </main>
+        <div class="map-container">
+            <div id="map"></div>
+            <button id="expand-map" class="btn btn-primary animate-scale">Expand map</button>
+        </div>
+    </div>
+
+    <!-- Include both forms -->
+    <div id="modal-container"></div>
+
+    <script src="../animationlibrary/script.js"></script>
+    <script>
+        // Mock data for doctors
+        const mockDoctors = [
+            {
+                name: "Dr. Sarah Johnson",
+                specialty: "Primary Care",
+                rating: 4.8,
+                reviews: 156,
+                nextAvailable: "Tomorrow",
+                image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. Michael Chen",
+                specialty: "Cardiology",
+                rating: 4.9,
+                reviews: 203,
+                nextAvailable: "Today",
+                image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. Emily Rodriguez",
+                specialty: "Pediatrics",
+                rating: 4.7,
+                reviews: 178,
+                nextAvailable: "Tomorrow",
+                image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. James Wilson",
+                specialty: "Dermatology",
+                rating: 4.6,
+                reviews: 142,
+                nextAvailable: "Next Week",
+                image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. Lisa Patel",
+                specialty: "Family Medicine",
+                rating: 4.9,
+                reviews: 267,
+                nextAvailable: "Today",
+                image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. David Kim",
+                specialty: "Orthopedics",
+                rating: 4.8,
+                reviews: 189,
+                nextAvailable: "Tomorrow",
+                image: "https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. Rachel Thompson",
+                specialty: "Internal Medicine",
+                rating: 4.7,
+                reviews: 156,
+                nextAvailable: "Today",
+                image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=200"
+            },
+            {
+                name: "Dr. Robert Martinez",
+                specialty: "Neurology",
+                rating: 4.8,
+                reviews: 213,
+                nextAvailable: "Next Week",
+                image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=200"
+            }
+        ];
+
+        // Initialize the Google Maps callback
+        function initGoogleMaps() {
+            // This will be called when Google Maps is loaded
+            initMap();
+        }
+
+        // Load mock data after delay to simulate API call
+        setTimeout(() => {
+            document.querySelector('.skeleton-doctors').style.display = 'none';
+            document.querySelector('.doctors-list').style.display = 'block';
+        }, 2000);
+    </script>
+    <script src="script.js"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_ACTUAL_API_KEY&callback=initGoogleMaps">
+    </script>
+</body>
+</html> 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body style="padding: 2rem; background-color: #f5f5f5;">
+    <!-- Navigation -->
+    <nav style="margin-bottom: var(--spacing-lg);">
+        <a href="form.html" class="btn btn-primary">Go to Sign Up Form</a>
+    </nav>
+
+    <!-- Buttons -->
+    <section class="component-section">
+        <h2>Buttons</h2>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-primary" disabled>Disabled Button</button>
+        </div>
+    </section>
+
+    <!-- Form Controls -->
+    <section class="component-section">
+        <h2>Form Controls</h2>
+        
+        <!-- Text Field -->
+        <div class="form-group">
+            <label for="textField" class="form-label">Text Field</label>
+            <input type="text" id="textField" class="form-input" placeholder="Enter text">
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-group">
+            <label class="checkbox-container">
+                <input type="checkbox" class="checkbox-input">
+                <span class="checkbox-custom"></span>
+                Checkbox Option
+            </label>
+        </div>
+
+        <!-- Radio Buttons -->
+        <div class="form-group">
+            <label class="radio-container">
+                <input type="radio" name="radio-group" class="radio-input">
+                <span class="radio-custom"></span>
+                Radio Option 1
+            </label>
+            <label class="radio-container">
+                <input type="radio" name="radio-group" class="radio-input">
+                <span class="radio-custom"></span>
+                Radio Option 2
+            </label>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="form-group">
+            <label for="dropdown" class="form-label">Dropdown</label>
+            <select id="dropdown" class="form-select">
+                <option value="">Select an option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+    </section>
+</body>
+</html> 
